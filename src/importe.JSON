@@ -1,0 +1,24 @@
+{
+    "Cliente":1233,
+    "Nombre":"Pedro Ramirez",
+    "Direccion":"Calle de la Piuleta 14",
+    "ultimo_pedido":{
+        "id_pedido":2,
+        "Productos":[
+            {
+                "id_producto":77,
+                "Nombre":"Impresora Laser",
+                "Fabricante":"Canon",
+                "Cantidad":3,
+                "precio_uni":80
+            },
+            {
+                "id_producto":22,
+                "Nombre":"Raton Gamer",
+                "Fabricante":"Longitech",
+                "Cantidad":2,
+                "precio_uni":55
+            }
+        ]
+    }
+}

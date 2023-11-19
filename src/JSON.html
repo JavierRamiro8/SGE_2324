@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="Boton sacar JSON" id="button1"></input>
+</body>
+<script>
+    Clientes={
+   "Cliente":1233,
+    "Nombre":"Pedro Ramirez",
+    "Direccion":"Calle de la Piuleta 14",
+    "ultimo_pedido":{
+        "id_pedido":2,
+        "Productos":[
+            {
+                "id_producto":77,
+                "Nombre":"Impresora Laser",
+                "Fabricante":"Canon",
+                "Cantidad":3,
+                "precio_uni":80
+            },
+            {
+                "id_producto":22,
+                "Nombre":"Raton Gamer",
+                "Fabricante":"Longitech",
+                "Cantidad":2,
+                "precio_uni":55
+            }
+        ]
+    }
+}
+    document.getElementById("button1").addEventListener("click",SacarJSON)
+    function SacarJSON(){
+        var padre=document.getElementsByTagName("body")[0];
+        var textoInformacionCliente=document.createElement("p");
+        textoInformacionCliente.textContent=Clientes.Nombre+" que vive en la "+Clientes.Direccion+" ha comprado:";
+
+        var Comprado1=document.createElement("p")
+        Comprado1.textContent=Clientes.ultimo_pedido.Productos[0].Cantidad+" "+Clientes.ultimo_pedido.Productos[0].Nombre+" "+Clientes.ultimo_pedido.Productos[0].Fabricante
+        
+        var Comprado2=document.createElement("p")
+        Comprado2.textContent=Clientes.ultimo_pedido.Productos[1].Cantidad+" "+Clientes.ultimo_pedido.Productos[1].Nombre+" "+Clientes.ultimo_pedido.Productos[1].Fabricante
+        
+        var VentaTotal=document.createElement("p")
+        
+        var ImpresorasSuma=Clientes.ultimo_pedido.Productos[0].precio_uni*Clientes.ultimo_pedido.Productos[0].Cantidad;
+        
+        var RatonesSuma=Clientes.ultimo_pedido.Productos[1].precio_uni*Clientes.ultimo_pedido.Productos[1].Cantidad;
+        
+        var sumaTotal=ImpresorasSuma+RatonesSuma
+        
+        VentaTotal.textContent="ha costado: "+sumaTotal+"€"
+        
+        padre.appendChild(textoInformacionCliente);
+        
+        padre.appendChild(Comprado1);
+        
+        padre.appendChild(Comprado2);
+        
+        padre.appendChild(VentaTotal)
+    }
+    
+</script>
+</html>
